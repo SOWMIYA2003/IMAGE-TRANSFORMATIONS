@@ -36,11 +36,9 @@ Define a region of interest by specifying the desired range of rows and columns 
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-
 input_image = cv2.imread("min1.png")
 input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
-
 plt.imshow(input_image)
 plt.show()
 rows,cols,dim=input_image.shape
@@ -55,6 +53,15 @@ plt.show()
 ### ii) Image Scaling
 
 ```
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("min1.png")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
 rows, cols, dim = input_image.shape 
 M = np.float32([[1.5, 0, 0],[0, 1.8, 0],[0, 0, 1]])
 
@@ -66,6 +73,15 @@ plt.show()
 ### iii)Image shearing
 
 ```
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("min1.png")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
 M_x = np.float32([[1, 0.5, 0],[0, 1 ,0],[0,0,1]])
 M_y =np.float32([[1, 0, 0],[0.5, 1, 0],[0, 0, 1]])
 
@@ -82,8 +98,16 @@ plt.show()
 ### iv)Image Reflection
 
 ```
-M_x= np.float32([[1,0, 0],[0, -1, rows],[0, 0, 1]])
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("min1.png")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
 
+M_x= np.float32([[1,0, 0],[0, -1, rows],[0, 0, 1]])
 M_y =np.float32([[-1, 0, cols],[ 0, 1, 0 ],[ 0, 0, 1 ]])
 # Apply a perspective transformation to the image
 reflected_img_xaxis=cv2.warpPerspective (input_image, M_x,(int(cols), int(rows)))
@@ -100,6 +124,15 @@ plt.show()
 
 ### v)Image Rotation
 ```
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("min1.png")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
 angle=np.radians(10)
 M=np.float32([[np.cos(angle),-(np.sin(angle)),0],[np.sin(angle),np.cos(angle),0],[0,0,1]])
 rotated_img = cv2.warpPerspective(input_image,M,(int(cols),int(rows)))
@@ -114,6 +147,15 @@ plt.show()
 
 
 ```
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("min1.png")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
 cropped_img= input_image[100:300,100:300]
 
 plt.imshow(cropped_img)
